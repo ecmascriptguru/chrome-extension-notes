@@ -1,0 +1,31 @@
+{
+  "name": "chrome-extension-notes",
+  "version": "0.0.1",
+  "description": "Owesome tool to manage personal notes",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecmascriptguru/chrome-extension-notes.git"
+  },
+  "keywords": [
+    "javascript",
+    "jQuery",
+    "chrome",
+    "extension",
+    "node.js",
+    "react",
+    "redux"
+  ],
+  "author": "Alexis Richard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ecmascriptguru/chrome-extension-notes/issues"
+  },
+  "homepage": "https://github.com/ecmascriptguru/chrome-extension-notes#readme"
+}
