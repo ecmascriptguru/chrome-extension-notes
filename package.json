@@ -36,6 +36,13 @@
     "globals": {
       "chrome": true
     },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "modules": true
+      }
+    },
     "rules": {
       "eol-last": 0,
       "quotes": [
