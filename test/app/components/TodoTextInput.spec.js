@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import React from 'react';
 import TestUtils from 'react-dom/test-utils';
+import ReactShallowRenderer from 'react-test-renderer/shallow';
 import TodoTextInput from '../../../app/components/TodoTextInput';
 import style from '../../../app/components/TodoTextInput.css';
 
@@ -15,7 +16,7 @@ function setup(propOverrides) {
     ...propOverrides
   };
 
-  const renderer = TestUtils.createRenderer();
+  const renderer = new ReactShallowRenderer();
 
   renderer.render(<TodoTextInput {...props} />);
 
