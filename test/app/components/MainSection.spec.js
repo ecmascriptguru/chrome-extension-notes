@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-dom/test-utils';
 import MainSection from '../../../app/components/MainSection';
 import style from '../../../app/components/MainSection.css';
 import TodoItem from '../../../app/components/TodoItem';
