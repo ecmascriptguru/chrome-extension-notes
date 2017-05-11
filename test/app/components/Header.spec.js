@@ -27,7 +27,7 @@ describe('todoapp Header component', () => {
     const [h1, input] = output.props.children;
 
     expect(h1.type).to.equal('h1');
-    expect(h1.props.children).to.equal('todos');
+    expect(h1.props.children).to.equal('Personal Notes');
 
     expect(input.type).to.equal(TodoTextInput);
     expect(input.props.newTodo).to.equal(true);
