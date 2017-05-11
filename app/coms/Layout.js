@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import style from './Layout.css';
 import Header from './Header';
+import * as PageTypes from '../constants/PageTypes';
+import Notes from './notes/Notes';
 
 export default class Layout extends Component {
 
@@ -17,11 +19,15 @@ export default class Layout extends Component {
 
   render() {
     const { type, title } = this.props;
-    
+    let content = null;
+    let items = [];
+    if (type == PageTypes.BROWSE_NOTES) {
+      content = <Notes type={type} notes={items}/>
+    }
     return (
       <section className={style.main}>
         <Header title={title} />
-        <div className={style.todoList}>{type}</div>
+        {content}
       </section>
     )
   };

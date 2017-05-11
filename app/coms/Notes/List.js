@@ -13,4 +13,20 @@ export default class List extends Component {
             notes: props.notes
         }
     }
+
+    render = () => {
+        const { notes } = this.props;
+
+        const items = notes.map((note) => {
+            <Item 
+                value={note}
+            />
+        });
+
+        return (
+            <ul className={style.list}>
+                {items}
+            </ul>
+        );
+    }
 }

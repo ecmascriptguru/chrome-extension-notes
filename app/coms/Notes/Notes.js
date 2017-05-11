@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import List from './List';
 import style from './Notes.css';
+import * as PageTypes from '../../constants/PageTypes';
 
-const NOTES_PAGE_TYPE_LIST = 'NOTES_PAGE_TYPE_LIST';
 const NOTES_PAGES = {
-    NOTES_PAGE_TYPE_LIST: function(props) {
+    BROWSE_NOTES: function(props) {
         return (
             <List
                 notes={props.notes}
@@ -15,7 +15,8 @@ const NOTES_PAGES = {
 }
 export default class Notes extends Component {
     static propTypes = {
-        type: PropTypes.string.isRequired
+        type: PropTypes.string.isRequired,
+        notes: PropTypes.array.isRequired
     };
 
     constructor(props) {
@@ -28,6 +29,6 @@ export default class Notes extends Component {
     render = () => {
         const { type, notes } = this.props;
 
-        return NOTES_PAGES[type];
+        return NOTES_PAGES[type](this.props);
     }
 }
