@@ -24,7 +24,7 @@ describe('Personal note Header component', () => {
 
     expect(output.type).to.equal('header');
 
-    const [h3] = output.props.children;
+    const h3 = output.props.children;
 
     expect(h3.type).to.equal('h3');
     expect(h3.props.children).to.equal('Browse Notes');

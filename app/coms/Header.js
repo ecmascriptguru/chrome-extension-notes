@@ -14,7 +14,7 @@ export default class Header extends Component {
     render = () => {
         return (
             <header className={style.header}>
-                <center><h3>{this.props.title}</h3></center>
+                <h3 className={style.title}>{this.props.title}</h3>
             </header>
         )
     }
