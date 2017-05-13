@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import style from './Notes.css';
 import * as ActionTypes from '../../constants/ActionTypes';
 
+import { Button } from 'react-bootstrap';
+
 export default class Notes extends Component {
     static propTypes = {
         type: PropTypes.string.isRequired,
@@ -31,16 +33,16 @@ export default class Notes extends Component {
     renderButtons = () => {
         return (
             <div>
-                <button 
+                <Button 
                     className={style.manageCategory}
                     onClick={this.manageCategory}
                     >Manage Category
-                </button>
-                <button 
+                </Button>
+                <Button 
                     className={style.newNote}
                     onClick={this.newNote}
                     >New Note
-                </button>
+                </Button>
             </div>
         );
     }
