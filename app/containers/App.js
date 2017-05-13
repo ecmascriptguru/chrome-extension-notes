@@ -4,15 +4,17 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import Layout from '../components/Layout';
-import * as TodoActions from '../actions/todos';
+import * as NoteActions from '../actions/notes';
 import style from './App.css';
 
 @connect(
   state => ({
-    todos: state.todos
+    notes: state.notes,
+    categories: state.categories,
+    type: state.type
   }),
   dispatch => ({
-    actions: bindActionCreators(TodoActions, dispatch)
+    actions: bindActionCreators(NoteActions, dispatch)
   })
 )
 export default class App extends Component {
@@ -23,12 +25,13 @@ export default class App extends Component {
   }
 
   static propTypes = {
-    todos: PropTypes.array.isRequired,
+    notes: PropTypes.array.isRequired,
+    categories: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
   };
 
   render() {
-    const { todos, actions, type, title } = this.props;
+    const { actions, type, title } = this.props;
 
     return (
       <div className={style.normal}>
@@ -36,13 +39,6 @@ export default class App extends Component {
           type={type}
           title={title}
         />
-      </div>
-    )
-
-    return (
-      <div className={style.normal}>
-        <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
       </div>
     );
   }
