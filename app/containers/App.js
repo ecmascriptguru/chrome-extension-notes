@@ -9,35 +9,39 @@ import style from './App.css';
 
 @connect(
   state => ({
-    notes: state.notes,
-    categories: state.categories,
-    type: state.type
+    notes: state.notes.length,
+    categories: state.categories
   }),
   dispatch => ({
     actions: bindActionCreators(NoteActions, dispatch)
   })
 )
 export default class App extends Component {
+  static propTypes = {
+    actions: PropTypes.object.isRequired,
+    type: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+  };
 
   constructor(props) {
     super(props);
-    this.state = {type: props.type};
+    this.state = {
+      type: props.type,
+      title: props.title
+    };
   }
 
-  static propTypes = {
-    notes: PropTypes.array.isRequired,
-    categories: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired
-  };
-
   render() {
-    const { actions, type, title } = this.props;
+    const { actions, title, type } = this.props;
+    const { notes, categories } = this.props;
 
     return (
       <div className={style.normal}>
         <Layout 
           type={type}
           title={title}
+          notes={notes}
+          categories={categories}
         />
       </div>
     );

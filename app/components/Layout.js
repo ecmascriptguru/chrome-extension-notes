@@ -9,7 +9,9 @@ export default class Layout extends Component {
 
   static propTypes = {
     title: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired
+    type: PropTypes.string.isRequired,
+    notes: PropTypes.array.isRequired,
+    categories: PropTypes.array.isRequired
   };
 
   constructor(props, context) {
