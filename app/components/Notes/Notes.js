@@ -21,7 +21,7 @@ export default class Notes extends Component {
     }
 
     manageCategory = () => {
-        alert("Manage Category clicked.");
+        this.props.onPropertyTypeChanged(ActionTypes.BROWSES_CATEGORIES);
     }
 
     newNote = () => {

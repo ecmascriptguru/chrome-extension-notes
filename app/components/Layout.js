@@ -5,6 +5,7 @@ import Header from './Header';
 import * as ActionTypes from '../constants/ActionTypes';
 import Notes from './notes/Notes';
 import AddNote from './notes/AddNote';
+import Categories from './categories/Categories';
 
 export default class Layout extends Component {
 
@@ -17,20 +18,26 @@ export default class Layout extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.state = { type: props.type };
+    this.state = { 
+      type: props.type,
+      title: props.title,
+      categories: props.categories
+    };
 
     this.typeChangeHandler = this.typeChangeHandler.bind(this);
   };
 
   typeChangeHandler = (type) => {
+    let title = ActionTypes.titles[type];
+
     this.setState({
       type: type,
-      title: ActionTypes.titles[type]
+      title: title
     });
   }
 
-  renderContent = () => {
-    if (this.state.type == ActionTypes.BROWSE_NOTES) {
+  renderContent = (type) => {
+    if (type == ActionTypes.BROWSE_NOTES) {
       return(
         <Notes 
           type={this.props.type}
@@ -42,15 +49,22 @@ export default class Layout extends Component {
       return (
         <AddNote />
       );
+    } else if (this.state.type === ActionTypes.BROWSES_CATEGORIES) {
+      return (
+        <Categories
+          type={this.state.type}
+          categories={this.state.categories}
+          />
+      );
     }
   }
 
   render() {
-    const { title } = this.state;
+    const { title, type } = this.state;
     return (
       <section className={style.main}>
         <Header title={title} />
-        { this.renderContent() }
+        { this.renderContent(type) }
       </section>
     )
   };
