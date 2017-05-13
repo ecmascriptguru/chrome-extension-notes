@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import style from './Notes.css';
 import * as ActionTypes from '../../constants/ActionTypes';
 
-import { Button } from 'react-bootstrap';
+import { Button, Grid, Row, Col } from 'react-bootstrap';
 
 export default class Notes extends Component {
     static propTypes = {
@@ -32,18 +32,24 @@ export default class Notes extends Component {
 
     renderButtons = () => {
         return (
-            <div>
-                <Button 
-                    className={style.manageCategory}
-                    onClick={this.manageCategory}
-                    >Manage Category
-                </Button>
-                <Button 
-                    className={style.newNote}
-                    onClick={this.newNote}
-                    >New Note
-                </Button>
-            </div>
+            <Grid>
+                <Row>
+                    <Col xs={3}>
+                        <Button 
+                            className="form-control"
+                            onClick={this.manageCategory}
+                            >Manage Category
+                        </Button>
+                    </Col>
+                    <Col xs={3} xsOffset={6}>
+                        <Button 
+                            className="form-control"
+                            onClick={this.newNote}
+                            >New Note
+                        </Button>
+                    </Col>
+                </Row>
+            </Grid>
         );
     }
 
