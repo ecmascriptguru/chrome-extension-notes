@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import style from './Layout.css';
 import Header from './Header';
+import Footer from './Footer';
 import * as ActionTypes from '../constants/ActionTypes';
 import Notes from './notes/Notes';
 import AddNote from './notes/AddNote';
@@ -77,6 +78,7 @@ export default class Layout extends Component {
       <section className={style.main}>
         <Header title={title} />
         { this.renderContent(type) }
+        <Footer />
       </section>
     )
   };
