@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import List from './List';
 import style from './Notes.css';
+import * as ActionTypes from '../../constants/ActionTypes';
 
 const NOTES_PAGES = {
     BROWSE_NOTES: function(props) {
@@ -25,9 +26,29 @@ export default class Notes extends Component {
         }
     }
 
+    // renderButtons = () => {
+    //     return (
+    //         <h3>Buttons here</h3>
+    //     );
+    // }
+
+    renderContent  = () => {
+        if (this.state.type === ActionTypes.BROWSE_NOTES) {
+            return (
+                <List
+                    notes={ this.props.notes }
+                />
+            )
+        }
+    }
+
     render = () => {
         const { type, notes } = this.props;
 
-        return NOTES_PAGES[type](this.props);
+        return (
+            <div>
+                { this.renderContent() }
+            </div>
+        );
     }
 }

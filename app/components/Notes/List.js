@@ -14,6 +14,12 @@ export default class List extends Component {
         }
     }
 
+    renderButtons = () => {
+        return (
+            <h3>Buttons here</h3>
+        );
+    }
+
     render = () => {
         const { notes } = this.props;
 
@@ -25,13 +31,19 @@ export default class List extends Component {
 
         if (items.length > 0) {
             return (
-                <ul className={style.list}>
-                    {items}
-                </ul>
+                <div>
+                    { this.renderButtons() }
+                    <ul className={style.list}>
+                        {items}
+                    </ul>
+                </div>
             );
         } else {
             return (
-                <h3>No note found.</h3>
+                <div>
+                    { this.renderButtons() }
+                    <h3>No note found.</h3>
+                </div>
             )
         }
     }

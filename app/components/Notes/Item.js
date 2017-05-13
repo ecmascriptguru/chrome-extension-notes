@@ -10,21 +10,15 @@ export default class Item extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: props.items
+            note: props.note
         }
     }
 
     redner = () => {
-        const { notes } = this.state;
+        const { note } = this.state;
 
-        if ( notes.length > 0 ) {
-            return (
-                <h5>{notes.length}</h5>
-            );
-        } else {
-            return (
-                <h5>Not found.</h5>
-            )
-        }
+        return (
+            <pre>{JSON.stringify(note)}</pre>
+        );
     }
 }
