@@ -9,6 +9,8 @@ import AddNote from './notes/AddNote';
 import Categories from './categories/Categories';
 import AddCategory from './categories/AddCategory';
 
+import { Panel } from 'react-bootstrap';
+
 export default class Layout extends Component {
 
   static propTypes = {
@@ -74,12 +76,18 @@ export default class Layout extends Component {
 
   render() {
     const { title, type } = this.state;
+    const header = (
+      <Header title={title} />
+    );
+    const footer = (
+      <Footer />
+    );
     return (
-      <section className={style.main}>
-        <Header title={title} />
-        { this.renderContent(type) }
-        <Footer />
-      </section>
+      <div>
+        <Panel header={header} footer={footer}>
+          { this.renderContent(type) }
+        </Panel>
+      </div>
     )
   };
 };
