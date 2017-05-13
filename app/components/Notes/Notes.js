@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import List from './List';
 import style from './Notes.css';
 import * as ActionTypes from '../../constants/ActionTypes';
 
-const NOTES_PAGES = {
-    BROWSE_NOTES: function(props) {
-        return (
-            <List
-                notes={props.notes}
-            />
-        );
-    }
-}
 export default class Notes extends Component {
     static propTypes = {
         type: PropTypes.string.isRequired,
-        notes: PropTypes.array.isRequired
+        notes: PropTypes.array.isRequired,
+        onPropertyTypeChanged: PropTypes.func.isRequired
     };
 
     constructor(props) {
@@ -24,30 +15,67 @@ export default class Notes extends Component {
         this.state = {
             type: props.type
         }
+
+        this.manageCategory = this.manageCategory.bind(this);
+        this.newNote = this.newNote.bind(this);
     }
 
-    // renderButtons = () => {
-    //     return (
-    //         <h3>Buttons here</h3>
-    //     );
-    // }
+    manageCategory = () => {
+        alert("Manage Category clicked.");
+    }
 
-    renderContent  = () => {
-        if (this.state.type === ActionTypes.BROWSE_NOTES) {
+    newNote = () => {
+        this.props.onPropertyTypeChanged(ActionTypes.NEW_NOTE);
+    }
+
+    renderButtons = () => {
+        return (
+            <div>
+                <button 
+                    className={style.manageCategory}
+                    onClick={this.manageCategory}
+                    >Manage Category
+                </button>
+                <button 
+                    className={style.newNote}
+                    onClick={this.newNote}
+                    >New Note
+                </button>
+            </div>
+        );
+    }
+
+    renderNotes = () => {
+        const { type, notes } = this.props;
+
+        const items = notes.map((note) => {
+            <Item 
+                note={note}
+            />
+        });
+
+        if (items.length > 0) {
             return (
-                <List
-                    notes={ this.props.notes }
-                />
+                <div>
+                    <ul className={style.list}>
+                        {items}
+                    </ul>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <h3>No note found.</h3>
+                </div>
             )
         }
     }
 
     render = () => {
-        const { type, notes } = this.props;
-
         return (
-            <div>
-                { this.renderContent() }
+            <div className="style.notes">
+                { this.renderButtons() }
+                { this.renderNotes() }
             </div>
         );
     }

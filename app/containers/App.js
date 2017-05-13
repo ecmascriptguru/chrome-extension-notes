@@ -32,8 +32,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { actions, title, type } = this.props;
-    const { notes, categories } = this.props;
+    const { actions, title, type, notes, categories } = this.props;
 
     return (
       <div className={style.normal}>

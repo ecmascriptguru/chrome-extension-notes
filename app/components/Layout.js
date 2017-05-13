@@ -4,6 +4,7 @@ import style from './Layout.css';
 import Header from './Header';
 import * as ActionTypes from '../constants/ActionTypes';
 import Notes from './notes/Notes';
+import AddNote from './notes/AddNote';
 
 export default class Layout extends Component {
 
@@ -17,19 +18,39 @@ export default class Layout extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = { type: props.type };
+
+    this.typeChangeHandler = this.typeChangeHandler.bind(this);
   };
 
-  render() {
-    const { type, title } = this.props;
-    let content = null;
-    let items = [];
-    if (type == ActionTypes.BROWSE_NOTES) {
-      content = <Notes type={type} notes={items}/>
+  typeChangeHandler = (type) => {
+    this.setState({
+      type: type,
+      title: ActionTypes.titles[type]
+    });
+  }
+
+  renderContent = () => {
+    if (this.state.type == ActionTypes.BROWSE_NOTES) {
+      return(
+        <Notes 
+          type={this.props.type}
+          notes={this.props.notes}
+          onPropertyTypeChanged={this.typeChangeHandler}
+          />
+      );
+    } else if (this.state.type === ActionTypes.NEW_NOTE) {
+      return (
+        <AddNote />
+      );
     }
+  }
+
+  render() {
+    const { title } = this.state;
     return (
       <section className={style.main}>
         <Header title={title} />
-        {content}
+        { this.renderContent() }
       </section>
     )
   };
