@@ -19,14 +19,20 @@ export default class List extends Component {
 
         const items = notes.map((note) => {
             <Item 
-                value={note}
+                note={note}
             />
         });
 
-        return (
-            <ul className={style.list}>
-                {items}
-            </ul>
-        );
+        if (items.length > 0) {
+            return (
+                <ul className={style.list}>
+                    {items}
+                </ul>
+            );
+        } else {
+            return (
+                <h3>No note found.</h3>
+            )
+        }
     }
 }

@@ -8,7 +8,7 @@ const initialState = {
 
 const actionsMap = {
   [ActionTypes.BROWSE_NOTES](state, action) {
-    return {...state};
+    return state;
   }
 };
 

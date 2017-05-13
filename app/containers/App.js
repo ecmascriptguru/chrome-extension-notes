@@ -9,8 +9,8 @@ import style from './App.css';
 
 @connect(
   state => ({
-    notes: state.notes.length,
-    categories: state.categories
+    notes: state.notes.notes,
+    categories: state.notes.categories
   }),
   dispatch => ({
     actions: bindActionCreators(NoteActions, dispatch)
