@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import App from './App';
-import * as PageTypes from '../constants/PageTypes';
+import * as ActionTypes from '../constants/ActionTypes';
 
 export default class Root extends Component {
 
@@ -15,8 +15,8 @@ export default class Root extends Component {
     return (
       <Provider store={store}>
         <App 
-          type={PageTypes.BROWSE_NOTES}
-          title={PageTypes.titles.BROWSE_NOTES}
+          type={ActionTypes.BROWSE_NOTES}
+          title={ActionTypes.titles.BROWSE_NOTES}
         />
       </Provider>
     );

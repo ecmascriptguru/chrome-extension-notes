@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import List from './List';
 import style from './Notes.css';
-import * as PageTypes from '../../constants/PageTypes';
 
 const NOTES_PAGES = {
     BROWSE_NOTES: function(props) {
