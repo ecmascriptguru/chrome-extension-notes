@@ -6,6 +6,7 @@ import * as ActionTypes from '../constants/ActionTypes';
 import Notes from './notes/Notes';
 import AddNote from './notes/AddNote';
 import Categories from './categories/Categories';
+import AddCategory from './categories/AddCategory';
 
 export default class Layout extends Component {
 
@@ -47,13 +48,24 @@ export default class Layout extends Component {
       );
     } else if (this.state.type === ActionTypes.NEW_NOTE) {
       return (
-        <AddNote />
+        <AddNote 
+          onPropertyTypeChanged={this.typeChangeHandler}
+          />
       );
     } else if (this.state.type === ActionTypes.BROWSES_CATEGORIES) {
       return (
         <Categories
           type={this.state.type}
           categories={this.state.categories}
+          onPropertyTypeChanged={this.typeChangeHandler}
+          />
+      );
+    } else if (this.state.type === ActionTypes.NEW_CATEGORY) {
+      return (
+        <AddCategory
+          type={this.state.type}
+          categories={this.state.categories}
+          onPropertyTypeChanged={this.typeChangeHandler}
           />
       );
     }
