@@ -6,9 +6,9 @@ export const NEW_CATEGORY = "NEW_CATEGORY";
 export const VIEW_CATEGORY = "VIEW_CATEGORY";
 export const titles = {
     BROWSE_NOTES: "Browse Notes",
-    NEW_NOTE: "NEW_NOTE",
-    VIEW_NOTE: "VIEW_NOTE",
-    BROWSES_CATEGORIES: "BROWSES_CATEGORIES",
-    NEW_CATEGORY: "NEW_CATEGORY",
-    VIEW_CATEGORY: "VIEW_CATEGORY"
+    NEW_NOTE: "Creat new Note",
+    VIEW_NOTE: "View a note",
+    BROWSES_CATEGORIES: "Browse Categories",
+    NEW_CATEGORY: "Creat a new Category",
+    VIEW_CATEGORY: "View a Category"
 };

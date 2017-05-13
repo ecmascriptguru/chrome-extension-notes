@@ -6,9 +6,9 @@ import ReactShallowRenderer from 'react-test-renderer/shallow';
 import Header from '../../../app/components/Header';
 import * as ActionTypes from '../../../app/constants/ActionTypes';
 
-function setup() {
+function setup(title) {
   const props = {
-    title: ActionTypes.titles.BROWSE_NOTES
+    title: title
   };
 
   const renderer = new ReactShallowRenderer();
@@ -19,14 +19,14 @@ function setup() {
 }
 
 describe('Personal note Header component', () => {
-  it('should render correctly', () => {
-    const { output } = setup();
+  it('should render titles and components correctly for all action types', () => {
+    for(let actionType in ActionTypes.titles) {
+      const { output } = setup(ActionTypes.titles[actionType]);
+      const h3 = output.props.children;
 
-    expect(output.type).to.equal('header');
-
-    const h3 = output.props.children;
-
-    expect(h3.type).to.equal('h3');
-    expect(h3.props.children).to.equal('Browse Notes');
+      expect(output.type).to.equal('header');
+      expect(h3.type).to.equal('h3');
+      expect(h3.props.children).to.equal(ActionTypes.titles[actionType]);
+    }
   });
 });
