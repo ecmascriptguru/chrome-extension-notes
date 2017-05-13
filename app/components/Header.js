@@ -1,29 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TodoTextInput from './TodoTextInput';
+import style from './Header.css';
 
 export default class Header extends Component {
+    static propTypes = {
+        title: PropTypes.string.isRequired
+    };
 
-  static propTypes = {
-    addTodo: PropTypes.func.isRequired
-  };
+    constructor(props) {
+        super(props);
+    };
 
-  handleSave = (text) => {
-    if (text.length !== 0) {
-      this.props.addTodo(text);
+    render = () => {
+        return (
+            <header className={style.header}>
+                <h3 className={style.title}>{this.props.title}</h3>
+            </header>
+        )
     }
-  };
-
-  render() {
-    return (
-      <header>
-        <h1>Personal Notes</h1>
-        <TodoTextInput
-          newTodo
-          onSave={this.handleSave}
-          placeholder="What needs to be done?"
-        />
-      </header>
-    );
-  }
 }
