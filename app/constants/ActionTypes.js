@@ -1,6 +1,14 @@
-export const ADD_TODO = 'ADD_TODO';
-export const DELETE_TODO = 'DELETE_TODO';
-export const EDIT_TODO = 'EDIT_TODO';
-export const COMPLETE_TODO = 'COMPLETE_TODO';
-export const COMPLETE_ALL = 'COMPLETE_ALL';
-export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
+export const BROWSE_NOTES = "BROWSE_NOTES";
+export const NEW_NOTE = "NEW_NOTE";
+export const VIEW_NOTE = "VIEW_NOTE";
+export const BROWSES_CATEGORIES = "BROWSES_CATEGORIES";
+export const NEW_CATEGORY = "NEW_CATEGORY";
+export const VIEW_CATEGORY = "VIEW_CATEGORY";
+export const titles = {
+    BROWSE_NOTES: "Browse Notes",
+    NEW_NOTE: "NEW_NOTE",
+    VIEW_NOTE: "VIEW_NOTE",
+    BROWSES_CATEGORIES: "BROWSES_CATEGORIES",
+    NEW_CATEGORY: "NEW_CATEGORY",
+    VIEW_CATEGORY: "VIEW_CATEGORY"
+};

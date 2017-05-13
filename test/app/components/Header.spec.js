@@ -4,11 +4,11 @@ import React from 'react';
 import TestUtils from 'react-dom/test-utils';
 import ReactShallowRenderer from 'react-test-renderer/shallow';
 import Header from '../../../app/components/Header';
-import * as PageTypes from '../../../app/constants/PageTypes';
+import * as ActionTypes from '../../../app/constants/ActionTypes';
 
 function setup() {
   const props = {
-    title: PageTypes.titles.BROWSE_NOTES
+    title: ActionTypes.titles.BROWSE_NOTES
   };
 
   const renderer = new ReactShallowRenderer();
